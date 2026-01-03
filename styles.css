@@ -240,22 +240,78 @@ li {
     border-top: 3px solid #4a5568;
 }
 
+.final-message h2 {
+    font-style: normal;
+    margin-bottom: 15px;
+}
+
+/* Details/Summary Styling */
+details {
+    margin-top: 15px;
+}
+
+summary {
+    cursor: pointer;
+    padding: 12px;
+    background-color: #edf2f7;
+    border-radius: 6px;
+    font-weight: bold;
+    user-select: none;
+    list-style: none;
+    transition: background-color 0.2s ease;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "▼ ";
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+details[open] summary::before {
+    transform: rotate(-90deg);
+}
+
+summary:hover {
+    background-color: #e2e8f0;
+}
+
+details[open] summary {
+    margin-bottom: 10px;
+}
+
+/* Improved Touch Targets for Mobile */
+@media (hover: none) and (pointer: coarse) {
+    summary,
+    button,
+    a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 /* Tablet Styles */
 @media screen and (max-width: 1024px) {
     .container {
-        margin: 10px;
-        padding: 20px;
+        margin: 15px;
+        padding: 25px;
         border-radius: 8px;
+        max-width: 100%;
     }
     
     h1 {
-        font-size: 1.8rem;
-        padding-bottom: 10px;
+        font-size: 1.6rem;
+        padding-bottom: 15px;
     }
     
     h2 {
-        font-size: 1.2rem;
-        padding: 12px 15px;
+        font-size: 1.15rem;
+        padding: 12px 18px;
     }
     
     h3 {
@@ -264,21 +320,33 @@ li {
     }
     
     .operators-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
     }
     
     .operator-card {
-        padding: 12px;
+        padding: 15px;
     }
     
     .code-block {
-        padding: 12px;
+        padding: 14px;
         font-size: 0.85rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .example-box,
+    .warning-box,
+    .tip-box,
+    .practice-section {
+        padding: 16px;
     }
     
     table {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        overflow-x: auto;
+        display: block;
+        -webkit-overflow-scrolling: touch;
     }
     
     th, td {
@@ -291,6 +359,7 @@ li {
     body {
         background-color: white;
         padding: 0;
+        font-size: 15px;
     }
     
     .container {
@@ -298,48 +367,62 @@ li {
         padding: 15px;
         border-radius: 0;
         box-shadow: none;
+        max-width: 100%;
     }
     
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin-bottom: 20px;
-        padding-bottom: 8px;
+        padding-bottom: 10px;
+        line-height: 1.4;
+        word-wrap: break-word;
     }
     
     h2 {
-        font-size: 1.1rem;
-        padding: 10px 15px;
+        font-size: 1.05rem;
+        padding: 10px 12px;
         margin: 20px 0 10px 0;
+        border-right-width: 3px;
+        word-wrap: break-word;
     }
     
     h3 {
         font-size: 0.95rem;
-        margin: 15px 0 8px 0;
+        margin: 15px 0 10px 0;
         border-right-width: 3px;
         padding-right: 8px;
+        word-wrap: break-word;
     }
     
     .operators-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
-        margin: 10px 0;
+        gap: 12px;
+        margin: 15px 0;
     }
     
     .operator-card {
-        padding: 10px;
+        padding: 12px;
         font-size: 0.9rem;
     }
     
     .code-block {
-        padding: 10px;
+        padding: 12px;
         font-size: 0.8rem;
-        margin: 10px 0;
+        margin: 12px 0;
         border-radius: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .code-block::before {
+        font-size: 10px;
+        padding: 2px 6px;
     }
     
     .inline-code {
         font-size: 0.8em;
-        padding: 2px 4px;
+        padding: 2px 5px;
+        word-break: break-word;
     }
     
     .example-box,
@@ -347,6 +430,7 @@ li {
     .tip-box {
         padding: 12px;
         margin: 12px 0;
+        border-right-width: 3px;
     }
     
     .practice-section {
@@ -354,16 +438,35 @@ li {
         margin: 15px 0;
     }
     
+    details {
+        margin-top: 10px;
+    }
+    
+    summary {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        font-weight: bold;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    summary:hover {
+        background-color: #e0e0e0;
+    }
+    
     table {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         overflow-x: auto;
         display: block;
         white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
     
     th, td {
         padding: 8px 6px;
-        min-width: 80px;
+        min-width: 70px;
     }
     
     ul {
@@ -372,43 +475,58 @@ li {
     
     li {
         font-size: 0.9rem;
-        line-height: 1.4;
+        line-height: 1.5;
         margin: 6px 0;
     }
     
     .final-message {
-        font-size: 1rem;
+        font-size: 0.95rem;
         padding: 15px;
         margin-top: 20px;
+        line-height: 1.6;
     }
 }
 
 /* Small Mobile Styles */
 @media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
     .container {
         padding: 10px;
     }
     
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
+        line-height: 1.3;
+        padding-bottom: 8px;
     }
     
     h2 {
-        font-size: 1rem;
-        padding: 8px 12px;
+        font-size: 0.95rem;
+        padding: 8px 10px;
+        margin: 15px 0 8px 0;
     }
     
     h3 {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin: 12px 0 8px 0;
     }
     
     .code-block {
-        font-size: 0.75rem;
-        padding: 8px;
+        font-size: 0.7rem;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    
+    .code-block::before {
+        font-size: 9px;
+        padding: 2px 5px;
     }
     
     .operator-card {
-        padding: 8px;
+        padding: 10px;
         font-size: 0.85rem;
     }
     
@@ -417,20 +535,36 @@ li {
     .tip-box,
     .practice-section {
         padding: 10px;
+        margin: 10px 0;
+        font-size: 0.9rem;
+    }
+    
+    details summary {
+        font-size: 0.85rem;
+        padding: 8px;
     }
     
     table {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
     
     th, td {
         padding: 6px 4px;
-        min-width: 70px;
+        min-width: 60px;
+    }
+    
+    li {
+        font-size: 0.85rem;
+        line-height: 1.4;
     }
     
     .final-message {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         padding: 12px;
+    }
+    
+    .final-message h2 {
+        font-size: 1rem;
     }
 }
 
