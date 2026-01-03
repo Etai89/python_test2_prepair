@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="דף הכנה מקיף למבחן 2 בפייתון - מבני נתונים ולולאות עם תרגילים ודוגמאות קוד">
+    <meta name="theme-color" content="#1a365d">
+    <title>דף הכנה למבחן 2 - מבני נתונים ולולאות בפייתון</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="logo192.png">
+    <link rel="apple-touch-icon" href="logo192.png">
+</head>
+<body>
+    <div class="container">
+        <script>
+            console.log('דף זה נכתב ע"י איתי חתואל')
+        </script>
+        <h1>דף הכנה למבחן 2 - מבני נתונים ולולאות בפייתון</h1>
+
+        <h2>רשימות (Lists) - מבנה נתונים חיוני</h2>
+        <p>רשימה היא <span class="inline-code">מבנה נתונים שיכול להכיל נתונים מאותו הסוג או מסוגים שונים</span> - זו התשובה הנכונה!</p>
+        
+        <div class="tip-box">
+            <strong>⚠️ הערה חשובה:</strong> 
+            <ul>
+                <li>רשימה בפייתון יכולה להכיל כל סוג נתונים ביחד</li>
+                <li><strong>האיבר הראשון ברשימה נמצא במיקום 0</strong> - לא 1!</li>
+                <li>זה נקרא "אינדקס" והוא מתחיל תמיד מ-0</li>
+                <li>ניתן לגשת לאיברים עם סוגריים מרובעים []</li>
+                <li><strong>הדוגמאות בדף דומות למבחן אבל לא זהות - כדי שתבינו את העקרונות</strong></li>
+            </ul>
+        </div>
+        
+        <div class="example-box">
+            <strong>יצירת רשימות ואינדקסים:</strong>
+            <div class="code-block"><span class="comment"># יצירת רשימה</span>
+<span class="variable">my_list</span> <span class="operator">=</span> [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>]
+
+<span class="comment"># גישה לאיברים - אינדקס מתחיל מ-0!</span>
+<span class="function">print</span>(<span class="variable">my_list</span>[<span class="number">0</span>])  <span class="comment"># יודפס: 10 (איבר ראשון)</span>
+<span class="function">print</span>(<span class="variable">my_list</span>[<span class="number">1</span>])  <span class="comment"># יודפס: 20 (איבר שני)</span>
+<span class="function">print</span>(<span class="variable">my_list</span>[<span class="number">3</span>])  <span class="comment"># יודפס: 40 (איבר רביעי)</span>
+
+<span class="comment"># רשימה מעורבת</span>
+<span class="variable">mixed_list</span> <span class="operator">=</span> [<span class="string">"שם"</span>, <span class="number">25</span>, <span class="keyword">True</span>, <span class="number">3.14</span>]</div>
+        </div>
+
+        <h2>לולאת For עם רשימות - מושג מרכזי במבחן</h2>
+        
+        <div class="warning-box">
+            <strong>דוגמה טיפוסית:</strong> מה התוכנית תדפיס?<br>
+            <span class="inline-code">for i in [1, 2, 3]: print(i * 3)</span><br>
+            <strong>התשובה: 3, 6, 9</strong>
+        </div>
+        
+        <div class="operators-grid">
+            <div class="operator-card">
+                <strong>לולאה על רשימה</strong>
+                <div class="code-block"><span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]:
+    <span class="function">print</span>(<span class="variable">i</span> <span class="operator">*</span> <span class="number">3</span>)</div>
+                <p>תדפיס: 3, 6, 9</p>
+            </div>
+            <div class="operator-card">
+                <strong>איך זה עובד?</strong>
+                <p>i=1 → 1*3 = 3<br>
+                i=2 → 2*3 = 6<br>
+                i=3 → 3*3 = 9</p>
+            </div>
+            <div class="operator-card">
+                <strong>לולאה על מחרוזות</strong>
+                <div class="code-block"><span class="keyword">for</span> <span class="variable">name</span> <span class="keyword">in</span> [<span class="string">"דני"</span>, <span class="string">"שרה"</span>]:
+    <span class="function">print</span>(<span class="string">"שלום"</span>, <span class="variable">name</span>)</div>
+            </div>
+        </div>
+
+        <h2>פונקציית Range - הבנה מעמיקה</h2>
+        
+        <div class="tip-box">
+            <strong>מה קובע ה-range בכתיב הזה?</strong> <span class="inline-code">for i in range(n)</span><br>
+            <strong>תשובה נכונה:</strong> קובע את תחום המספרים כמה פעמים יש לבצע את גוף הלולאה
+        </div>
+
+        <h3>שלוש צורות של Range - חובה לדעת!</h3>
+        <div class="operators-grid">
+            <div class="operator-card">
+                <strong>range(n)</strong>
+                <div class="code-block"><span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="number">5</span>):
+    <span class="function">print</span>(<span class="variable">i</span>)
+<span class="comment"># יודפס: 0, 1, 2, 3, 4</span></div>
+                <p>מ-0 עד n-1</p>
+            </div>
+            <div class="operator-card">
+                <strong>range(start, stop)</strong>
+                <div class="code-block"><span class="function">range</span>(<span class="number">3</span>, <span class="number">8</span>)
+<span class="comment"># מייצר: 3, 4, 5, 6, 7</span></div>
+                <p>מ-start עד stop-1</p>
+            </div>
+            <div class="operator-card">
+                <strong>range(start, stop, step)</strong>
+                <div class="code-block"><span class="function">range</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">3</span>)
+<span class="comment"># מייצר: 1, 4, 7</span></div>
+                <p>עם צעד של 3</p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠️ שים לב למלכודות נפוצות:</strong><br>
+            <code>print(range(2, 7, 1))</code> - זה לא יודפס כרשימה!<br>
+            <strong>תצטרך לכתוב:</strong> <code>print(list(range(2, 7, 1)))</code><br>
+            <strong>התוצאה הנכונה: [2, 3, 4, 5, 6]</strong>
+        </div>
+        
+        <div class="example-box">
+            <strong>דוגמאות טיפוסיות:</strong>
+            <div class="code-block"><span class="comment"># מה יודפס? (דוגמה טיפוסית)</span>
+<span class="function">print</span>(<span class="function">list</span>(<span class="function">range</span>(<span class="number">2</span>, <span class="number">7</span>, <span class="number">1</span>)))  <span class="comment"># [2, 3, 4, 5, 6]</span>
+<span class="function">print</span>(<span class="function">list</span>(<span class="function">range</span>(<span class="number">1</span>, <span class="number">10</span>, <span class="number">3</span>)))  <span class="comment"># [1, 4, 7]</span>
+
+<span class="comment"># לולאה עם range</span>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>):
+    <span class="function">print</span>(<span class="variable">i</span>)  <span class="comment"># יודפס: 1, 3, 5</span></div>
+        </div>
+
+        <h2>מילונים (Dictionaries) - מושג חיוני</h2>
+        
+        <div class="warning-box">
+            <strong>מה זה Dictionary?</strong><br>
+            <strong>התשובה הנכונה:</strong> טיפוס שבאמצעותו משייכים מפתח לערך<br>
+            (לא יומן ולא מערך!)
+        </div>
+        
+        <div class="operators-grid">
+            <div class="operator-card">
+                <strong>יצירת מילון</strong>
+                <div class="code-block"><span class="variable">student</span> <span class="operator">=</span> {
+    <span class="string">"name"</span>: <span class="string">"דני"</span>,
+    <span class="string">"age"</span>: <span class="number">20</span>,
+    <span class="string">"grade"</span>: <span class="number">85</span>
+}</div>
+            </div>
+            <div class="operator-card">
+                <strong>גישה לערכים</strong>
+                <div class="code-block"><span class="comment"># דרך ישירה</span>
+<span class="function">print</span>(<span class="variable">student</span>[<span class="string">"name"</span>])
+
+<span class="comment"># דרך בטוחה עם get()</span>
+<span class="function">print</span>(<span class="variable">student</span>.<span class="function">get</span>(<span class="string">"name"</span>))</div>
+            </div>
+            <div class="operator-card">
+                <strong>בדיקת קיום מפתח</strong>
+                <div class="code-block"><span class="keyword">if</span> <span class="string">"name"</span> <span class="keyword">in</span> <span class="variable">student</span>:
+    <span class="function">print</span>(<span class="string">"מפתח קיים"</span>)</div>
+            </div>
+        </div>
+
+        <h3>פונקציות חשובות במילון - מה חובה לדעת למבחן</h3>
+        <div class="tip-box">
+            <strong>get(key) - מה הפונקציה עושה?</strong><br>
+            <strong>תשובה נכונה:</strong> מחזירה את הערך שתואם למפתח<br><br>
+            <strong>מה קורה אם המפתח לא קיים?</strong><br>
+            <strong>תשובה נכונה:</strong> יחזור None (לא 0 ולא 1!)
+        </div>
+
+        <div class="example-box">
+            <strong>דוגמאות נפוצות:</strong>
+            <div class="code-block"><span class="variable">info_dict</span> <span class="operator">=</span> {<span class="string">"x"</span>: <span class="number">5</span>, <span class="string">"y"</span>: <span class="number">10</span>}
+
+<span class="comment"># get() עם מפתח קיים</span>
+<span class="function">print</span>(<span class="variable">info_dict</span>.<span class="function">get</span>(<span class="string">"x"</span>))    <span class="comment"># יודפס: 5</span>
+
+<span class="comment"># get() עם מפתח לא קיים</span>
+<span class="function">print</span>(<span class="variable">info_dict</span>.<span class="function">get</span>(<span class="string">"z"</span>))    <span class="comment"># יודפס: None</span>
+
+<span class="comment"># בדיקת קיום מפתח עם in</span>
+<span class="keyword">if</span> <span class="string">"y"</span> <span class="keyword">in</span> <span class="variable">info_dict</span>:
+    <span class="function">print</span>(<span class="string">"המפתח y קיים!"</span>)</div>
+        </div>
+
+        <div class="warning-box">
+            <strong>מה הפונקציה in עושה?</strong><br>
+            <strong>התשובה הנכונה:</strong> בודקת האם מפתח כלשהו נמצא במילון<br>
+            (לא מכניסה מפתח או ערך!)
+        </div>
+
+        <h2>Tuples (רשימות קבועות)</h2>
+        
+        <div class="warning-box">
+            <strong>באיזה סוגריים נאתחל Tuple?</strong><br>
+            <strong>התשובה הנכונה:</strong> () סוגריים עגולות<br>
+            (לא { } ויש דבר כזה Tuple!)
+        </div>
+        
+        <div class="operators-grid">
+            <div class="operator-card">
+                <strong>יצירת Tuple</strong>
+                <div class="code-block"><span class="comment"># Tuple עם מספר איברים</span>
+<span class="variable">point</span> <span class="operator">=</span> (<span class="number">3</span>, <span class="number">5</span>)
+
+<span class="comment"># Tuple עם איבר אחד - שים לב לפסיק!</span>
+<span class="variable">single</span> <span class="operator">=</span> (<span class="number">42</span>,)</div>
+            </div>
+            <div class="operator-card">
+                <strong>גישה לאיברים</strong>
+                <div class="code-block"><span class="variable">colors</span> <span class="operator">=</span> (<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>)
+<span class="function">print</span>(<span class="variable">colors</span>[<span class="number">0</span>])  <span class="comment"># red</span>
+<span class="function">print</span>(<span class="variable">colors</span>[<span class="number">2</span>])  <span class="comment"># blue</span></div>
+            </div>
+            <div class="operator-card">
+                <strong>ההבדל מרשימה</strong>
+                <p>Tuple: (1, 2, 3) - קבוע<br>
+                List: [1, 2, 3] - ניתן לשינוי</p>
+            </div>
+        </div>
+
+        <h2>💡 דברים שאסור לשכוח במבחן!</h2>
+        
+        <div class="warning-box">
+            <h3>🚨 נקודות קריטיות שקובעות הצלחה או כישלון:</h3>
+            <ul>
+                <li><strong style="color: red;">אינדקס ראשון תמיד 0!</strong> - ברשימות, Tuples ומחרוזות</li>
+                <li><strong style="color: red;">get() מחזיר None</strong> - לא שגיאה ולא 0</li>
+                <li><strong style="color: red;">in רק בודק</strong> - לא מכניס ערכים למילון</li>
+                <li><strong style="color: red;">range(n) לא כולל את n</strong> - רק 0 עד n-1</li>
+                <li><strong style="color: red;">Tuple עם סוגריים עגולות ()</strong> - לא [] או {}</li>
+            </ul>
+        </div>
+
+        <h2>📐 הנוסחאות החשובות</h2>
+        
+        <div class="operators-grid">
+            <div class="operator-card">
+                <strong>📋 רשימות</strong>
+                <div class="code-block"><span class="comment"># יצירה</span>
+<span class="variable">my_list</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]
+
+<span class="comment"># גישה (זכרו: מתחיל מ-0!)</span>
+<span class="variable">first</span> = <span class="variable">my_list</span>[<span class="number">0</span>]  <span class="comment"># האיבר הראשון</span></div>
+                <small><strong>זכרו:</strong> מבנה נתונים שיכול להכיל כל דבר</small>
+            </div>
+            <div class="operator-card">
+                <strong>🔄 לולאות עם Range</strong>
+                <div class="code-block"><span class="comment"># מ-0 עד n-1</span>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="number">5</span>):
+    <span class="function">print</span>(<span class="variable">i</span>)  <span class="comment"># 0,1,2,3,4</span>
+
+<span class="comment"># מ-start עד stop-1</span>
+<span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="number">2</span>, <span class="number">5</span>):
+    <span class="function">print</span>(<span class="variable">i</span>)  <span class="comment"># 2,3,4</span></div>
+                <small><strong>זכרו:</strong> קובע כמה פעמים הלולאה רצה</small>
+            </div>
+            <div class="operator-card">
+                <strong>📖 מילונים</strong>
+                <div class="code-block"><span class="comment"># יצירה</span>
+<span class="variable">data</span> = {<span class="string">"key"</span>: <span class="string">"value"</span>}
+
+<span class="comment"># גישה בטוחה</span>
+<span class="variable">result</span> = <span class="variable">data</span>.<span class="function">get</span>(<span class="string">"key"</span>)
+
+<span class="comment"># בדיקת קיום</span>
+<span class="keyword">if</span> <span class="string">"key"</span> <span class="keyword">in</span> <span class="variable">data</span>:</div>
+                <small><strong>זכרו:</strong> משייך מפתח לערך</small>
+            </div>
+            <div class="operator-card">
+                <strong>📦 Tuples</strong>
+                <div class="code-block"><span class="comment"># יצירה (שימו לב לסוגריים!)</span>
+<span class="variable">point</span> = (<span class="number">3</span>, <span class="number">5</span>)
+
+<span class="comment"># עם איבר אחד - חובה פסיק!</span>
+<span class="variable">single</span> = (<span class="number">42</span>,)</div>
+                <small><strong>זכרו:</strong> כמו רשימה אבל קבועה</small>
+            </div>
+        </div>
+
+        <h2>🎯 מלכודות נפוצות - תזהרו!</h2>
+        
+        <div class="example-box">
+            <h3>❌ שגיאות שעושים הכי הרבה:</h3>
+            <div class="code-block"><span class="comment"># ❌ חושבים שהאיבר הראשון הוא 1</span>
+<span class="variable">numbers</span> = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]
+<span class="function">print</span>(<span class="variable">numbers</span>[<span class="number">1</span>])  <span class="comment"># זה ידפיס 20, לא 10!</span>
+
+<span class="comment"># ✅ נכון - האיבר הראשון תמיד באינדקס 0</span>
+<span class="function">print</span>(<span class="variable">numbers</span>[<span class="number">0</span>])  <span class="comment"># זה ידפיס 10</span>
+
+<span class="comment"># ❌ חושבים ש-get() יגרום לשגיאה</span>
+<span class="variable">info</span> = {<span class="string">"age"</span>: <span class="number">25</span>}
+<span class="function">print</span>(<span class="variable">info</span>.<span class="function">get</span>(<span class="string">"name"</span>))  <span class="comment"># לא שגיאה! יודפס None</span>
+
+<span class="comment"># ❌ מבלבלים בין סוגריים</span>
+<span class="variable">wrong_tuple</span> = [<span class="number">1</span>, <span class="number">2</span>]  <span class="comment"># זו רשימה!</span>
+<span class="variable">correct_tuple</span> = (<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># זה Tuple!</span></div>
+        </div>
+
+        <h2>🧠 איך לזכור - טריקים מנטליים</h2>
+        
+        <div class="tip-box">
+            <h3>💭 דרכים לזכור את הדברים החשובים:</h3>
+            <ul>
+                <li><strong>אינדקס 0:</strong> "מתכנתים סופרים מ-0, לא מ-1!"</li>
+                <li><strong>range(5):</strong> "5 מספרים: 0,1,2,3,4 (בלי ה-5!)"</li>
+                <li><strong>get() בטוח:</strong> "get לא נותן שגיאה, רק None"</li>
+                <li><strong>in רק בודק:</strong> "in זה כמו 'האם יש?' - לא מוסיף כלום"</li>
+                <li><strong>Tuple עם ():</strong> "Tuple = רשימה עם סוגריים עגולות"</li>
+            </ul>
+        </div>
+
+        <h2>📊 טבלת השוואה מהירה</h2>
+        
+        <table>
+            <tr>
+                <th>מבנה נתונים</th>
+                <th>סוגריים</th>
+                <th>ניתן לשינוי?</th>
+                <th>אינדקס ראשון</th>
+                <th>דוגמה</th>
+            </tr>
+            <tr>
+                <td>List (רשימה)</td>
+                <td>[ ]</td>
+                <td>כן</td>
+                <td>0</td>
+                <td>[1, 2, 3]</td>
+            </tr>
+            <tr>
+                <td>Tuple</td>
+                <td>( )</td>
+                <td>לא</td>
+                <td>0</td>
+                <td>(1, 2, 3)</td>
+            </tr>
+            <tr>
+                <td>Dictionary (מילון)</td>
+                <td>{ }</td>
+                <td>כן</td>
+                <td>מפתח</td>
+                <td>{"a": 1, "b": 2}</td>
+            </tr>
+        </table>
+
+        <h2>שגיאות נפוצות - חשוב לא לפספס!</h2>
+        
+        <div class="warning-box">
+            <strong>השגיאות שגורמות לכישלון במבחן:</strong>
+            <ul>
+                <li><strong>לחשוב שאינדקס ראשון הוא 1</strong> - הוא תמיד 0!</li>
+                <li><strong>לבלבל בין range צורות שונות</strong> - תרגלו היטב</li>
+                <li><strong>לחשוב ש-get() זורק שגיאה</strong> - הוא מחזיר None</li>
+                <li><strong>לבלבל בין List ל-Tuple</strong> - סוגריים שונים!</li>
+                <li><strong>לחשוב ש-in מכניס ערך</strong> - הוא רק בודק קיום</li>
+                <li><strong>לשכוח פסיק ב-Tuple עם איבר אחד</strong> - (42,) לא (42)</li>
+            </ul>
+        </div>
+
+        <h2>דוגמאות קוד מקיפות</h2>
+        
+        <div class="practice-section">
+            <h3>עבודה עם רשימות ולולאות</h3>
+            <div class="code-block"><span class="comment"># יצירת רשימה ועבודה איתה</span>
+<span class="variable">grades</span> <span class="operator">=</span> [<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>]
+
+<span class="comment"># הדפסת כל הציונים</span>
+<span class="keyword">for</span> <span class="variable">grade</span> <span class="keyword">in</span> <span class="variable">grades</span>:
+    <span class="function">print</span>(<span class="string">"ציון:"</span>, <span class="variable">grade</span>)
+
+<span class="comment"># גישה לציון הראשון</span>
+<span class="function">print</span>(<span class="string">"ציון ראשון:"</span>, <span class="variable">grades</span>[<span class="number">0</span>])</div>
+            
+            <h3>עבודה עם מילונים</h3>
+            <div class="code-block"><span class="comment"># יצירת מילון סטודנט</span>
+<span class="variable">student</span> <span class="operator">=</span> {
+    <span class="string">"name"</span>: <span class="string">"שרה"</span>,
+    <span class="string">"age"</span>: <span class="number">22</span>,
+    <span class="string">"grade"</span>: <span class="number">95</span>
+}
+
+<span class="comment"># בדיקה אם מפתח קיים</span>
+<span class="keyword">if</span> <span class="string">"name"</span> <span class="keyword">in</span> <span class="variable">student</span>:
+    <span class="function">print</span>(<span class="string">"שם הסטודנט:"</span>, <span class="variable">student</span>.<span class="function">get</span>(<span class="string">"name"</span>))
+
+<span class="comment"># שליפת ערך שלא קיים</span>
+<span class="function">print</span>(<span class="variable">student</span>.<span class="function">get</span>(<span class="string">"phone"</span>))  <span class="comment"># יחזיר None</span></div>
+
+            <h3>עבודה עם Tuples</h3>
+            <div class="code-block"><span class="comment"># יצירת Tuple עם קואורדינטות</span>
+<span class="variable">location</span> <span class="operator">=</span> (<span class="number">32.0853</span>, <span class="number">34.7818</span>)  <span class="comment"># תל אביב</span>
+
+<span class="comment"># שליפת קואורדינטות</span>
+<span class="variable">lat</span> <span class="operator">=</span> <span class="variable">location</span>[<span class="number">0</span>]
+<span class="variable">lng</span> <span class="operator">=</span> <span class="variable">location</span>[<span class="number">1</span>]
+
+<span class="function">print</span>(<span class="string">"קו רוחב:"</span>, <span class="variable">lat</span>)
+<span class="function">print</span>(<span class="string">"קו אורך:"</span>, <span class="variable">lng</span>)</div>
+        </div>
+
+        <h2>טיפים להכנה יעילה למבחן</h2>
+        
+        <div class="practice-section">
+            <h3>אסטרטגיית הכנה</h3>
+            <div class="tip-box">
+                <ul>
+                    <li><strong>תרגלו את כל שלוש צורות ה-range</strong> - הן יופיעו במבחן!</li>
+                    <li><strong>זכרו: אינדקס ראשון תמיד 0</strong> - תחזרו על זה עד שיישאר</li>
+                    <li><strong>הבינו את ההבדל בין get() לגישה ישירה</strong> - חשוב מאוד</li>
+                    <li><strong>תרגלו סוגריים:</strong> [ ] לרשימה, ( ) ל-Tuple, { } למילון</li>
+                    <li><strong>תבינו מה in עושה</strong> - רק בודק קיום, לא מכניס</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>ביום המבחן - רשימת בדיקה:</strong>
+                <ul>
+                    <li>✅ זכרתי שאינדקס ראשון הוא 0?</li>
+                    <li>✅ הבנתי איך range עובד?</li>
+                    <li>✅ יודע מה get() מחזיר כשמפתח לא קיים?</li>
+                    <li>✅ זוכר באיזה סוגריים יוצרים Tuple?</li>
+                    <li>✅ יודע מה in בודק במילון?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>🎯 מה כדאי לעשות בשעות האחרונות לפני המבחן?</h2>
+        
+        <div class="example-box">
+            <h3>💪 חזרה אחרונה - בדקו שאתם יודעים:</h3>
+            <ol>
+                <li><strong>לכתוב לולאה עם range:</strong>
+                    <div class="code-block"><span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="number">10</span>):  <span class="comment"># מדפיס 0-9</span></div>
+                </li>
+                <li><strong>לגשת לאיבר ברשימה:</strong>
+                    <div class="code-block"><span class="variable">my_list</span>[<span class="number">0</span>]  <span class="comment"># איבר ראשון!</span></div>
+                </li>
+                <li><strong>לבדוק מפתח במילון:</strong>
+                    <div class="code-block"><span class="keyword">if</span> <span class="string">"key"</span> <span class="keyword">in</span> <span class="variable">my_dict</span>:</div>
+                </li>
+                <li><strong>להשתמש ב-get בביטחון:</strong>
+                    <div class="code-block"><span class="variable">value</span> = <span class="variable">my_dict</span>.<span class="function">get</span>(<span class="string">"key"</span>)  <span class="comment"># None אם אין</span></div>
+                </li>
+                <li><strong>ליצור Tuple:</strong>
+                    <div class="code-block"><span class="variable">point</span> = (<span class="number">3</span>, <span class="number">5</span>)  <span class="comment"># סוגריים עגולות!</span></div>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="warning-box">
+            <h3>🚨 הדברים שיכולים לקלקל לכם את הציון:</h3>
+            <ul>
+                <li><strong>לכתוב numbers[1] במקום numbers[0]</strong> לאיבר הראשון</li>
+                <li><strong>לחשוב שrange(5) כולל את 5</strong> - זה 0,1,2,3,4 בלבד!</li>
+                <li><strong>לכתוב רשימה במקום Tuple</strong> - [1,2] זו רשימה, (1,2) זה Tuple!</li>
+                <li><strong>לחשוב שget() זורק שגיאה</strong> - זה מחזיר None בשקט</li>
+            </ul>
+        </div>
+        
+        <div class="tip-box">
+            <h3>✨ והכי חשוב - תזכרו:</h3>
+            <p><strong>אם אתם לא בטוחים, בדקו עם דוגמה קטנה במחשבה!</strong></p>
+            <p>לדוגמה: אם רשימה היא [10, 20, 30] - איבר ראשון הוא 10 באינדקס 0, לא באינדקס 1!</p>
+        </div>
+    </div>
+</body>
+</html>
